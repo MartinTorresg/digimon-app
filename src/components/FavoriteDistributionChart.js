@@ -17,8 +17,8 @@ const FavoriteDistributionChart = () => {
       {
         label: 'Número de Digimons',
         data: Object.values(levelCounts),
-        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: '#1C4DAF',
+        borderColor: '#F0B310',
         borderWidth: 1,
       },
     ],
@@ -26,8 +26,10 @@ const FavoriteDistributionChart = () => {
 
   return (
     <div className="container mx-auto my-8">
-      <h2 className="text-3xl font-bold text-center my-4">Distribución de Digimons por Nivel</h2>
-      <Bar data={data} />
+      <h2 className="text-3xl font-bold text-center my-4 text-blue-900 dark:text-yellow-500">Distribución de Digimons por Nivel</h2>
+      <div className="bg-white dark:bg-blue-900 rounded-lg shadow-lg p-4">
+        <Bar data={data} />
+      </div>
     </div>
   );
 };

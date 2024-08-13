@@ -44,29 +44,29 @@ const DigimonList = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-4xl font-bold text-center my-4">Lista de Digimons</h1>
-      <p className="text-center text-gray-700 dark:text-gray-300 mb-4">Total de Digimons: {filteredDigimons.length}</p>
+      <h1 className="text-4xl font-bold text-center my-4 text-blue-900 dark:text-yellow-500">Lista de Digimons</h1>
+      <p className="text-center text-gray-700 dark:text-yellow-500 mb-4">Total de Digimons: {filteredDigimons.length}</p>
       <div className="flex justify-center mb-4">
         <input
           type="text"
           placeholder="Buscar Digimon..."
-          className="border p-2 rounded-lg w-full max-w-md dark:bg-gray-700 dark:text-white"
+          className="border p-2 rounded-lg w-full max-w-md dark:bg-blue-900 dark:text-yellow-500"
           onChange={e => setSearchTerm(e.target.value)}
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {currentDigimons.map((digimon) => (
-          <div key={digimon.name} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 flex flex-col items-center transform transition-transform hover:scale-105">
+          <div key={digimon.name} className="bg-white dark:bg-blue-900 rounded-lg shadow-lg p-4 flex flex-col items-center transform transition-transform hover:scale-105">
             <img src={digimon.img} alt={digimon.name} className="w-32 h-32 object-cover mb-2 rounded-full shadow-md"/>
-            <h2 className="text-2xl font-semibold">{digimon.name}</h2>
-            <p className="text-gray-700 dark:text-gray-300">{digimon.level}</p>
+            <h2 className="text-2xl font-semibold text-blue-900 dark:text-yellow-500">{digimon.name}</h2>
+            <p className="text-gray-700 dark:text-yellow-500">{digimon.level}</p>
             <button
               onClick={() => toggleFavorite(digimon)}
-              className={`mt-2 ${favorites.some(fav => fav.name === digimon.name) ? 'text-red-500' : 'text-gray-500'} hover:underline`}
+              className={`mt-2 ${favorites.some(fav => fav.name === digimon.name) ? 'text-red-500' : 'text-yellow-500'} hover:underline`}
             >
               {favorites.some(fav => fav.name === digimon.name) ? 'Eliminar de Favoritos' : 'Añadir a Favoritos'}
             </button>
-            <Link to={`/digimon/${digimon.name}`} className="text-blue-500 dark:text-blue-300 hover:underline mt-2">Ver detalles</Link>
+            <Link to={`/digimon/${digimon.name}`} className="text-blue-900 dark:text-yellow-500 hover:underline mt-2">Ver detalles</Link>
           </div>
         ))}
       </div>
@@ -75,7 +75,7 @@ const DigimonList = () => {
           <button 
             key={number + 1} 
             onClick={() => paginate(number + 1)} 
-            className={`border p-2 rounded-lg mx-1 ${currentPage === number + 1 ? 'bg-blue-500 text-white' : 'bg-white dark:bg-gray-800 text-black dark:text-white'} transition-transform transform hover:scale-105`}
+            className={`border p-2 rounded-lg mx-1 ${currentPage === number + 1 ? 'bg-blue-900 text-yellow-500' : 'bg-white dark:bg-blue-900 text-blue-900 dark:text-yellow-500'} transition-transform transform hover:scale-105`}
           >
             {number + 1}
           </button>
