@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DigimonList from './components/DigimonList';
+import DigimonDetails from './components/DigimonDetails';
+import FilterByLevel from './components/FilterByLevel';
+import RandomDigimon from './components/RandomDigimon';
+import Favorites from './components/Favorites';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <FavoritesProvider>
+        <Router>
+          <AppContent />
+        </Router>
+      </FavoritesProvider>
+    </ThemeProvider>
   );
 }
+
+const AppContent = () => {
+  const { darkMode, toggleDarkMode } = useTheme();
+
+  return (
+    <div className={darkMode ? 'bg-gray-900 text-white min-h-screen flex flex-col' : 'bg-gray-100 text-black min-h-screen flex flex-col'}>
+      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <main className="flex-grow mt-20"> {/* Ajustar el margen superior aquí */}
+        <Routes>
+          <Route path="/" element={<DigimonList />} />
+          <Route path="/digimon/:name" element={<DigimonDetails />} />
+          <Route path="/filter" element={<FilterByLevel />} />
+          <Route path="/random" element={<RandomDigimon />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
