@@ -28,7 +28,7 @@ const AppContent = () => {
   return (
     <div className={darkMode ? 'bg-gray-900 text-white min-h-screen flex flex-col' : 'bg-gray-100 text-black min-h-screen flex flex-col'}>
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <main className="flex-grow mt-20"> {/* Ajustar el margen superior aquí */}
+      <main className="flex-grow mt-20">
         <Routes>
           <Route path="/" element={<DigimonList />} />
           <Route path="/digimon/:name" element={<DigimonDetails />} />
