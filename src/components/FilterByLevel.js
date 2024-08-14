@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const FilterByLevel = () => {
   const [levels, setLevels] = useState([]);
@@ -43,6 +44,7 @@ const FilterByLevel = () => {
                 <img src={d.img} alt={d.name} className="w-32 h-32 object-cover mb-2 rounded-full shadow-md"/>
                 <h2 className="text-xl font-semibold text-blue-900 dark:text-yellow-500">{d.name}</h2>
                 <p className="text-gray-700 dark:text-yellow-500">{d.level}</p>
+                <Link to={`/digimon/${d.name}`} className="text-blue-900 dark:text-yellow-500 hover:underline mt-2">Ver detalles</Link>
               </div>
             ))}
           </div>

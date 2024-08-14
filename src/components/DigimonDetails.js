@@ -32,6 +32,12 @@ const DigimonDetails = () => {
         <div className="p-6 bg-blue-900 text-yellow-500">
           <h2 className="text-3xl font-bold mb-2">{digimon.name}</h2>
           <p className="text-yellow-500 mb-4">{digimon.level}</p>
+          <div className="mt-4 w-full">
+            <h3 className="text-lg font-bold text-blue-900 dark:text-yellow-500">Estadísticas</h3>
+            <p className="text-gray-700 dark:text-yellow-500">Ataque: {Math.floor(Math.random() * 100)}</p>
+            <p className="text-gray-700 dark:text-yellow-500">Defensa: {Math.floor(Math.random() * 100)}</p>
+            <p className="text-gray-700 dark:text-yellow-500">Velocidad: {Math.floor(Math.random() * 100)}</p>
+          </div>
           <button
             onClick={toggleFavorite}
             className={`mt-2 ${favorites.some(fav => fav.name === digimon.name) ? 'text-red-500' : 'text-yellow-500'} hover:underline`}
